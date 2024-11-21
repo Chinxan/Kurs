@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'dart:async'; // Для использования Timer
+import 'dart:async'; 
 import 'habit.dart';
 
 class HabitDetailScreen extends StatefulWidget {
@@ -28,7 +28,7 @@ class HabitDetailScreenState extends State<HabitDetailScreen> {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (completedDays < totalDays) {
         setState(() {
-          completedDays += 1.0 / (totalDays * 10); // Увеличиваем заполнение медленно
+          completedDays += 1.0 / (totalDays * 10); 
         });
       } else {
         _timer.cancel();
@@ -95,8 +95,8 @@ class HabitDetailScreenState extends State<HabitDetailScreen> {
                     ),
                   ),
                   Positioned(
-                    right: 450, // Перемещение вправо
-                    top: 60, // Перемещение выше центра
+                    right: 420, 
+                    top: 60, 
                     child: Text(
                       '7 дней',
                       style: TextStyle(
@@ -126,12 +126,12 @@ class HabitDetailScreenState extends State<HabitDetailScreen> {
                 child: Text('Рестарт'),
               ),
             ),
-            SizedBox(height: 20), // Отступ после кнопки
+            SizedBox(height: 20), 
             Container(
-              height: 2.0, // Высота линии
-              color: Colors.red, // Цвет линии
+              height: 2.0, 
+              color: Colors.red, 
             ),
-            SizedBox(height: 20), // Отступ после линии
+            SizedBox(height: 20), 
             Text('История:', style: TextStyle(fontSize: 18)),
             Expanded(
               child: ListView.builder(
@@ -140,11 +140,11 @@ class HabitDetailScreenState extends State<HabitDetailScreen> {
                   String historyEntry = widget.habit.history[index];
                   IconData iconData;
 
-                  // Определяем иконку в зависимости от текста истории
+                  
                   if (historyEntry.startsWith('Рестарт')) {
-                    iconData = Icons.refresh; // Иконка для рестарта
+                    iconData = Icons.refresh; 
                   } else {
-                    iconData = Icons.comment; // Иконка для комментария
+                    iconData = Icons.comment; 
                   }
 
                   return ListTile(
@@ -197,16 +197,16 @@ class HabitDetailScreenState extends State<HabitDetailScreen> {
               onPressed: () {
                 if (newName.isNotEmpty && newDescription.isNotEmpty) {
                   setState(() {
-                    widget.habit.name = newName; // Обновляем имя привычки
+                    widget.habit.name = newName; 
                   });
-                  Navigator.of(context).pop(); // Закрыть диалог
+                  Navigator.of(context).pop(); 
                 }
               },
               child: Text('Сохранить'),
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Закрыть диалог
+                Navigator.of(context).pop(); 
               },
               child: Text('Отмена'),
             ),
@@ -230,13 +230,13 @@ class HabitDetailScreenState extends State<HabitDetailScreen> {
                 widget.habit.attempts += 1;
                 widget.habit.history.add('Рестарт привычки');
               });
-              Navigator.of(context).pop(); // Закрыть диалог
+              Navigator.of(context).pop(); 
             },
             child: Text('Да'),
           ),
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop(); // Закрыть диалог
+              Navigator.of(context).pop(); 
             },
             child: Text('Нет'),
           ),
@@ -266,14 +266,14 @@ class HabitDetailScreenState extends State<HabitDetailScreen> {
                   setState(() {
                     widget.habit.history.add(comment); 
                   });
-                  Navigator.of(context).pop(); // Закрыть диалог
+                  Navigator.of(context).pop(); 
                 }
               },
               child: Text('Добавить'),
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Закрыть диалог
+                Navigator.of(context).pop(); 
               },
               child: Text('Отмена'),
             ),
@@ -325,15 +325,14 @@ class HabitDetailScreenState extends State<HabitDetailScreen> {
         actions: [
           TextButton(
             onPressed: () {
-              widget.onDelete(widget.habit); // Вызов функции удаления
-              Navigator.of(context).pop(); // Закрыть диалог
-              Navigator.of(context).pop(); // Закрыть экран привычки
+              widget.onDelete(widget.habit); 
+              Navigator.of(context).pop(); 
             },
             child: Text('Да'),
           ),
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop(); // Закрыть ди алог
+              Navigator.of(context).pop(); 
             },
             child: Text('Нет'),
           ),

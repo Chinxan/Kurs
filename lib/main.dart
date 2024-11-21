@@ -35,14 +35,14 @@ class HabitListScreenState extends State<HabitListScreen> {
     setState(() {
       habits.add(habit);
     });
-    startTimer(habit); // Запускаем таймер для новой привычки
+    startTimer(habit); 
   }
 
   void startTimer(Habit habit) {
-    // Запускаем таймер, который обновляет elapsedTime каждую секунду
+   
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
-        habit.updateElapsedTime(Duration(seconds: 1)); // Обновляем время привычки
+        habit.updateElapsedTime(Duration(seconds: 1)); 
       });
     });
   }
@@ -55,7 +55,7 @@ class HabitListScreenState extends State<HabitListScreen> {
 
   @override
   void dispose() {
-    timer?.cancel(); // Останавливаем таймер при уничтожении виджета
+    timer?.cancel(); 
     super.dispose();
   }
 
@@ -110,7 +110,7 @@ class HabitListScreenState extends State<HabitListScreen> {
                 }
                 return Card(
                   margin: EdgeInsets.all(10),
-                  color: filteredHabits[index].color, // Устанавливаем цвет карточки
+                  color: filteredHabits[index].color, 
                   child: ListTile(
                     title: Text(filteredHabits[index].name),
                     subtitle: Column(

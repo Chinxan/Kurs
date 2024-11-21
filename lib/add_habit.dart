@@ -69,7 +69,7 @@ class AddHabitScreenState extends State<AddHabitScreen> {
             TextField(
               controller: _goalController,
               decoration: InputDecoration(labelText: 'Текущая цель'),
-              keyboardType: TextInputType.number, // Ограничиваем ввод только цифрами
+              keyboardType: TextInputType.number, 
             ),
             SizedBox(height: 20),
             Text('Выбранный цвет:'),
